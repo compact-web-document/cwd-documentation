@@ -1,3 +1,56 @@
-body {
+* {
+    box-sizing: border-box;
+}
+
+html {
     background-color: #CCCCCC;
 }
+
+.document {
+    background: white;
+
+    width: calc(100 / 23 * 21vw);
+    height: calc(100 / 23 * 29.7vw);
+
+    display: block;
+
+    margin: calc(100 / 23 * 1vw) auto;
+
+    border: 1px #999 solid;
+    
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.page {
+    width: calc(100 / 23 * 19vw);
+    height: calc(100 / 23 * 27.7vw);
+
+    margin: calc(100 / 23 * 1vw);
+
+    outline: 0cm #FAFAFA solid;
+}
+
+@page {
+    size: A4;
+
+    margin: 0;
+}
+
+@media print {
+    .page-container {
+        background: initial;
+
+        width: initial;
+        min-height: initial;
+
+        margin: 0;
+
+        border: initial;
+        border-radius: initial;
+
+        box-shadow: initial;
+
+        page-break-after: always;
+    }
+}
+
