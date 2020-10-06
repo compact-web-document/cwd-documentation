@@ -63,7 +63,7 @@ Install the needed Rust binaries and tools:
 
 First of all, you need to build the `cwd-lib` library, you can do it with `cargo +stable build` inside the `cwd-lib` folder. Once you do that, the library will be available for the Reader embedding.
 
-Second, you have to export the `CWD_LIB` environment variable with the absolute path of the lib (eg. "/home/user/cwd/cwd-lib/target/debug") and another `CEF_SRCS` variable with the downloaded CEF distribution path (eg. "/home/user/Downloads/cef")
+Second, you have to export the `CWD_LIB_PATH` environment variable with the absolute path of the `target` dir lib (eg. "/home/user/cwd/cwd-lib/target") and another `CEF_SRCS` variable with the downloaded CEF distribution path (eg. "/home/user/Downloads/cef")
 
 Three, you have to build the `cwd-reader` in order to play with the CWD file, please install [CLion EAP](https://www.jetbrains.com/clion/nextversion/) and then open the `cwd-reader` project and simply run it.
 
