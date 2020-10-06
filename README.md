@@ -25,16 +25,19 @@ If you want a minimal environment where you can play with the CWD format, act as
 - Clone this repository
 - Clone the [cwd-lib](https://github.com/compact-web-document/cwd-lib) repository
 - Clone the [cwd-reader](https://github.com/compact-web-document/cwd-reader) repository
+- Download the appropriate CEF distribution, you can pick-up one via Spotify [here](http://opensource.spotify.com/cefbuilds/index.html)
 
 These are the minimal needed projects for let CWD running.
 
 ### Linux (Ubuntu)
 
-Prepare your environment installing all WebKit and relative needed libraries such:
+Currently supported distributions include Debian Wheezy, Ubuntu Precise, and related. Ubuntu 18.04 64-bit is recommended. Newer versions will likely also work but may not have been tested.
 
-- `sudo apt install libwebkit2gtk-4.0-dev`
-- `sudo apt install libgtk-3-dev`
-- `sudo apt install libsoup2.4-dev`
+Required packages include:
+
+- `build-essential`
+- `libgtk2.0-dev` (required by the cefclient target only)
+- `libgtkglext1-dev` (required by the cefclient target only)
 
 Install the needed Rust binaries and tools:
 
@@ -42,11 +45,7 @@ Install the needed Rust binaries and tools:
 
 ### MacOS
 
-Prepare your environment installing all WebKit and relative needed libraries such:
-
-- `brew install webkitgtk`
-- `brew install gtk+3` or `brew install gtk+`
-- `brew install libsoup`
+Xcode 8 or newer building on MacOS 10.10 (Yosemite) or newer. Xcode 11.2 and MacOS 10.14 are recommended. The Xcode command-line tools must also be installed. Only 64-bit builds are supported.
 
 Install the needed Rust binaries and tools:
 
@@ -54,9 +53,7 @@ Install the needed Rust binaries and tools:
 
 ### Windows (TODO)
 
-Prepare your environment installing all WebKit and relative needed libraries such:
-
-- Download and link to MiniGW [this](https://github.com/webview/webview/tree/master/dll/x64) library folder
+Visual Studio 2015 or newer building on Windows 7 or newer. Visual Studio 2019 and Windows 10 64-bit are recommended.
 
 Install the needed Rust binaries and tools:
 
@@ -66,7 +63,9 @@ Install the needed Rust binaries and tools:
 
 First of all, you need to build the `cwd-lib` library, you can do it with `cargo +stable build` inside the `cwd-lib` folder. Once you do that, the library will be available for the Reader embedding.
 
-Second, you have to build the `cwd-reader` in order to play with the CWD file, please install [CLion EAP](https://www.jetbrains.com/clion/nextversion/) and then open the `cwd-reader` project and simply run it.
+Second, you have to export the `CWD_LIB` environment variable with the absolute path of the lib (eg. "/home/user/cwd/cwd-lib/target/debug") and another `CEF_SRCS` variable with the downloaded CEF distribution path (eg. "/home/user/Downloads/cef")
+
+Three, you have to build the `cwd-reader` in order to play with the CWD file, please install [CLion EAP](https://www.jetbrains.com/clion/nextversion/) and then open the `cwd-reader` project and simply run it.
 
 If everything is setup correctly, you will see something like:
 
