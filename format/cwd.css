@@ -1,0 +1,70 @@
+.page {
+    font-family: Open Sans, sans-serif;
+    letter-spacing: 1px;
+}
+
+.page h1 {
+    margin-bottom: 0em;
+}
+
+.page h2 {
+    font-style: italic;
+    font-weight: normal;
+
+    color: #8a8a8a;
+
+    margin-top: 0em;
+}
+
+.page p {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.page .video, .page .maps {
+    height: 350px;
+
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.page .video {
+    width: 48%;
+
+    float: left;
+}
+
+.page .video video {
+    object-fit: fill;
+
+    outline: none;
+}
+
+.page .maps {
+    width: 48%;
+
+    float: right;
+}
+
+.page .video *:first-child, .page .maps *:first-child {
+    width: 100%;
+    height: 100%;
+
+    top: 30px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    position: absolute;
+}
+
+.page .clear {
+    width: 1px;
+
+    clear: both;
+}
+
