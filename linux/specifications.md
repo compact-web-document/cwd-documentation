@@ -5,26 +5,26 @@
 Version=1.0
 Name=CWD Reader
 Comment=Official desktop Compact Web Document format reader
-Exec=/cwd/path/bin/executable %f
-Icon=/cwd/path/assets/cwd-reader.png
+Exec=cwd-reader %f
+Icon=cwd-reader
 Terminal=false
 StartupWMClass=CWDReader
 Type=Application
-Categories=Document;Web;Reader;Gtk;
-MimeType=x-aplication/cwd+zip;
+Categories=Office;WordProcessor;Viewer;WebBrowser;
+MimeType=application/cwd+zip;
 Keywords=cwd;reader;document;web;
 X-GNOME-UsesNotifications=true
 ```
 
-Save this file in `/home/dario/.local/share/applications` or `/usr/share/applications` as `cwd-reader.desktop`.
+Save this file in `/usr/share/applications` and `~/.local/share/applications` as `cwd-reader.desktop`.
 
 # Default application
 
-Add a line in `/home/dario/.local/share/applications/mimeapps.list` with: `application/cwd+zip=cwd-reader.desktop`.
+Add a new line at end of `/usr/share/applications/default.list` and `~/.local/share/applications/mimeapps.list` with: `application/cwd+zip=cwd-reader.desktop`.
 
 # MIME association
 
-Add an XML called "cwd.xml" with this content:
+Add an XML called `cwd.xml` with this content:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -45,4 +45,6 @@ Also add the `application-cwd+zip.svg` file inside the `/usr/share/icons/hicolor
 # Update associations
 
 - `sudo update-mime-database /usr/share/mime/`
-- `sudo gtk-update-icon-cache` and `sudo gtk-update-icon-cache /usr/share/icons/hicolor/`
+- `sudo gtk-update-icon-cache`
+- `sudo update-icon-caches /usr/share/pixmaps/*`
+- `sudo gtk-update-icon-cache /usr/share/icons/hicolor/`
