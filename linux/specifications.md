@@ -1,12 +1,12 @@
 # Desktop entry
+
 ```desktop
 [Desktop Entry]
 Version=1.0
 Name=CWD Reader
 Comment=Official desktop Compact Web Document format reader
-TryExec=/home/dario/Apps/cwd-reader/bin/reader
-Exec=/home/dario/Apps/cwd-reader/bin/reader -- %u
-Icon=/home/dario/Apps/cwd-reader/assets/cwd.png
+Exec=/cwd/path/bin/executable %f
+Icon=/cwd/path/assets/cwd-reader.png
 Terminal=false
 StartupWMClass=CWDReader
 Type=Application
@@ -16,11 +16,33 @@ Keywords=cwd;reader;document;web;
 X-GNOME-UsesNotifications=true
 ```
 
-# Icon path
+Save this file in `/home/dario/.local/share/applications` or `/usr/share/applications` as `cwd-reader.desktop`.
 
-The [freedesktop.org](https://specifications.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html) standard specifies in which order and directories programs should look for icons:
+# Default application
 
-- `$HOME/.icons (for backwards compatibility)`
-- `$XDG_DATA_DIRS/icons`
-- `/usr/share/pixmaps`
+Add a line in `/home/dario/.local/share/applications/mimeapps.list` with: `application/cwd+zip=cwd-reader.desktop`.
 
+# MIME association
+
+Add an XML called "cwd.xml" with this content:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/cwd+zip">
+    <comment>CWD format file</comment>
+    <glob pattern="*.cwd"/>
+  </mime-type>
+</mime-info>
+```
+
+Inside the `/usr/share/mime/packages` path.
+
+# Icon
+
+Also add the `application-cwd+zip.svg` file inside the `/usr/share/icons/hicolor/scalable/mimetypes` path.
+
+# Update associations
+
+- `sudo update-mime-database /usr/share/mime/`
+- `sudo gtk-update-icon-cache` and `sudo gtk-update-icon-cache /usr/share/icons/hicolor/`
