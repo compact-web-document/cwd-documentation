@@ -68,3 +68,10 @@
     clear: both;
 }
 
+.page .image-showcase {
+    margin-top: 20px;
+}
+
+.page .image-showcase img {
+    width: 100%;
+}
