@@ -16,6 +16,27 @@ The CWD repositories are distributed as follows:
 - `cwd-site-backend` - Web Services for the CWD public site
 - `cwd-test` - Automated testing suite for all the libraries and CWD repositories
 
+## CWD file structure
+
+You can create a ZIP file and rename it as ".cwd", the archive should include these base files:
+
+- `cwd.html` that is the main content of the CWD file, the HTML shouldn't contain any HTML tag
+    - The file should be structured like:
+    ```html
+    <div class="page" size="A4" layout="portrait">
+        <h1>Sample title</h1>
+        <p>Sample text.</p>
+    </div>
+    ```
+- `cwd.toml` that contains some document meta-information:
+    - The file should be structured like:
+    ```toml
+    version = "1.0"
+    title = "A test document"
+    ```
+- `resources/cwd.css` that is the main document stylesheet with any custom rule
+- You can embed many resources as needed, just put files inside the `resources` directory and use in the `cwd.html` or `cwd.css` with the `cwd://resources/file.ext` way.
+
 ## Building
 
 If you want a minimal environment where you can play with the CWD format, act as follows:
